@@ -5,4 +5,4 @@ Console.Clear();
 Console.WriteLine("Программа отображает все четные числа от 1 до заданного числа.");
 Console.Write("Введите число: ");
 int N = Convert.ToInt32(Console.ReadLine());
-if (<= N <=2)
+if (-1 <= N <=2)

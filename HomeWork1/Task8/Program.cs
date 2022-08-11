@@ -7,4 +7,4 @@ Console.Write("Введите число: ");
 int N = Convert.ToInt32(Console.ReadLine());
 if (-1 <= N <=2)
 
-четность, счетчик, шаг +2
+четность; счетчик; шаг +2;

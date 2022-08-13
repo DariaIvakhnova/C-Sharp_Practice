@@ -4,11 +4,11 @@
 Console.Clear();
 Console.Write("Введите трехзначное число: ");
 int N = Convert.ToInt32(Console.ReadLine());
-if (N < 0) N = -N;
-if (99 < N < 1000)
+if (N < 0) N = -N;  // Можно убрать, добавив модуль в следующее условие
+if (99 < N && N < 1000)
 {
-    int LastDigit = N % 10; // Последняя цифра это остаток от деления на 10
-    Console.Write(LastDigit);
+        int LastDigit = N % 10; // Последняя цифра это остаток от деления на 10
+        Console.Write(LastDigit);
 }
 else
 {

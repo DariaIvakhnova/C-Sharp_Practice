@@ -6,4 +6,21 @@
 
 Console.Clear();
 Console.Write("Введите число: ");
-int N = Convert.ToInt32(Console.ReadLine());
+int num = Convert.ToInt32(Console.ReadLine());
+num = Math.Abs(num);
+if (99 < num && num < 1000)  
+{
+    Console.WriteLine(num % 10); //Третья цифра - остаток от деления на 10 для трехзначного числа
+}
+if (num > 999)
+{
+    while (num > 999) //Цикл снижения разрядности для чисел четырехзначных и выше
+    {
+        num = num / 10;           
+    }
+    Console.Write(num % 10); //Остаток от деления на 10, когда число становится трехзначным
+}
+if (num < 100)
+{
+    Console.Write("Третьей цифры нет");
+}

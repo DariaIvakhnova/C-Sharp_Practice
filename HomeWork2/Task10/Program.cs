@@ -3,11 +3,11 @@
 
 Console.Clear();
 Console.Write("Введите трехзначное число: ");
-int N = Convert.ToInt32(Console.ReadLine());
-N = Math.Abs(N); // Модуль на случай ввода отрицательного числа
-if (99 < N && N < 1000)
+int n = Convert.ToInt32(Console.ReadLine());
+n = Math.Abs(n); // Модуль на случай ввода отрицательного числа
+if (99 < n && n < 1000)
 {
-   Console.Write((N % 100)/10);
+   Console.Write((n % 100)/10);
 }
 else
 {

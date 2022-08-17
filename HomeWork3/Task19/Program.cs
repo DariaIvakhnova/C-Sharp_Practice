@@ -7,6 +7,12 @@
 Console.Clear();
 Console.Write("Введите пятизначное число: ");
 int number = Console.ReadLine();
+if (number < 10000 || 99999 < number)
+{
+	Console.Write("Число введено некорректно"); 
+	break; 
+	Console.Write(dotnet run);
+}
 
 int firstDigit = Convert.ToInt32(number/1000) //рассматривать сразу двухзначное число
 int secondDigit = Convert.ToInt32(number/100) //

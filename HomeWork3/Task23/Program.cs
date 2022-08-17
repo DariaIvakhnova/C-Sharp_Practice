@@ -13,8 +13,8 @@ while (count < number)
     Console.Write($"{cubed}, ");
     count++;
 }
-if (count == number) // чтобы после последнего числа не висела запятая
-{
+if (count == number) // Чтобы было как в примере и после последнего числа не висела запятая :)
+{                    // Но можно его убрать, вывести без запятых, тогда в while (count <= number)
     int cubed = Convert.ToInt32(Math.Pow(count,3));
     Console.Write($"{cubed}");
 }

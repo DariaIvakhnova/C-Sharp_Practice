@@ -56,23 +56,27 @@ void ShowArray(int[] array)
 // Console.WriteLine($"Сумма элементов с нечетными индексами = {sumOddIndex}");
 
 
-//Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+//Задача 38: Задайте массив вещественных* чисел. Найдите разницу между максимальным и минимальным элементов массива.
 //[3 7 22 2 78] -> 76
+//Условились на семинаре, что используем целые положительные и отрицательные числа
 
 int[] myArray = CreateRandomArray(5, -100, 100);
 ShowArray(myArray);
 
-int numMax = 0;
+int maxNum = myArray[0];
+int minNum = myArray[0];
 
-for (int i = 0; i < myArray.Length; i++) 
+for (int i = 1; i < myArray.Length; i++)
 {
-    if (myArray[i] < myArray[i+1])
+    if (myArray[i] > maxNum)
     {
-        numMax = myArray[i+1];
-    } 
+        maxNum = myArray[i];
+    }
+    if (myArray[i] < minNum)
+    {
+        minNum = myArray[i];
+    }
 }
-Console.WriteLine($"Максимальный элемент = {numMax}");
-
-// цикл для минимума
-
-//Console.WriteLine($"Разница между максимальным и минимальным эелементом = {numMax-numMin}");
+//Console.WriteLine($"Максимальный элемент массива = {maxNum}");
+//Console.WriteLine($"Минимальный элемент массива = {minNum}");
+Console.WriteLine($"Разница между максимальным и минимальным элементом = {maxNum-minNum}");

@@ -31,21 +31,6 @@ void PrintArray(int[,] matrix)
      }
 }
 
-int[,] ConvertToSQR(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-         for (int j = 0; j < array.GetLength(1); j++)
-         {
-             if (i % 2 == 0 && j % 2 == 0)
-             {
-                 array[i, j] = array[i, j] * array[i, j];
-             }
-         }
-     }
-     return array;
-}
-
 FillArray(matrix);
 PrintArray(matrix);
 System.Console.WriteLine(GetSum(matrix));
@@ -62,7 +47,7 @@ double = ColumnAverage(int[,] matrix)
      {
          columnSum += matrix[i, i];
      }
-     return columnAver = columnSum/matrix.GetLength(1);
+     return columnAver = columnSum/matrix.GetLength(0);
 }
 
 // вариант от Гаи:

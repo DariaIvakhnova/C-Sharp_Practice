@@ -9,25 +9,25 @@
  void FillMatrix(int[,] matr)
  {
     Random rand = new Random();
-     for (int i = 0; i < matr.GetLength(0); i++)
-     {
-         for (int j = 0; j < matr.GetLength(1); j++)
-         {
-             matr[i, j] = rand.Next(1, 10);
-         }
-     }
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = rand.Next(1, 10);
+        }
+    }
 }
 
  void PrintMatrix(int[,] massif)
  {
      for (int i = 0; i < massif.GetLength(0); i++)
-     {
-         for (int j = 0; j < massif.GetLength(1); j++)
-         {
-             Console.Write($"{massif[i, j]}\t");
-         }
-         System.Console.WriteLine();
-     }
+    {
+        for (int j = 0; j < massif.GetLength(1); j++)
+        {
+            Console.Write($"{massif[i, j]}\t");
+        }
+        System.Console.WriteLine();
+    }
 }
 
 int GetAverageForColumn(int[,] matrix)

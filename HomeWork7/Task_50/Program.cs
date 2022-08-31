@@ -1,4 +1,4 @@
-﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
 // Например, задан массив:
 // 1 4 7 2
@@ -8,48 +8,32 @@
 
 int[,] NewRandomMatrix(int lines, int columns, int minRand, int maxRand)
 {
-    int[,] matrix = new int[lines, columns];
+    int [,] matrix = new int[lines, columns];
     Random rand = new Random();
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
         {
-            matrix[i, j] = rand.Next();
+            matrix[i, j] = rand.Next(minRand,maxRand);
             Console.Write($"{matrix[i, j]}\t");
         }
         Console.WriteLine();
-    }
+        }
     return matrix;
 }
 
-
-
-int[,] matrix = new int[3, 4];
-Random rand = new Random();
-int counterOfLines = 0;
-int counterOfColumns = 0;
-for (int i = 0; i < matrix.GetLength(0); i++)
-{
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-        matrix[i, j] = rand.Next(1, 9);
-        Console.Write($"{matrix[i, j]}\t");
-        counterOfColumns++;
-    }
-    Console.WriteLine();
-    counterOfLines++;
-}
-
 int[,] newMatrix = NewRandomMatrix(3, 4, 1, 10);
+int lines = 3; // Искусственно выношу переменные из функции, чтобы использовать их дальше в сравнении (34)
+int columns = 4;
 
-Console.WriteLine("Введите индекс строки элемента: ");
-int numLine = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите индекс столбца элемента: ");
-int numColumn = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите индекс строки элемента: "); // Запрашиваю именно индекс. Иначе: в строке (36) вывода 
+int indexLine = Convert.ToInt32(Console.ReadLine());   // значения из индексов нужно вычитать 1 и использовать
+Console.WriteLine("Введите индекс столбца элемента: ");// "<=" в сравнении (34)
+int indexColumn = Convert.ToInt32(Console.ReadLine());
 
-if (numLine <= counterOfLines && numColumn <= counterOfColumns)
+if (indexLine < lines && indexColumn < columns)
 {
-    Console.WriteLine($"Элемент с индексами [{numLine},{numColumn}] : {matrix[numLine, numColumn]}");
+    Console.WriteLine($"Элемент с индексами [{indexLine},{indexColumn}] : {newMatrix[indexLine, indexColumn]}");
 }
 else
 {

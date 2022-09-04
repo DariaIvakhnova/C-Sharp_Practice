@@ -6,8 +6,8 @@
 // 8 4 2 4
 // Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
- void FillMatrix(int[,] matr)
- {
+void FillMatrix(int[,] matr)
+{
     Random rand = new Random();
     for (int i = 0; i < matr.GetLength(0); i++)
     {
@@ -41,7 +41,7 @@ int GetAverageForColumn(int[,] matrix)
             sumForColumn += matrix[i, j];
         }
         averageForColumn = (double) sumForColumn/matrix.GetLength(0);
-        Console.WriteLine($"Среднее арифметическое значений {j+1} столбца = {averageForColumn.ToString("F1")};");
+        Console.WriteLine($"Среднее арифметическое значений {j+1} столбца = {averageForColumn.ToString("F1")});");
     }
     return sumForColumn;
 }

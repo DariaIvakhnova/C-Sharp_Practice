@@ -25,33 +25,81 @@
 // Console.WriteLine("Массив, отсортированный по убыванию элементов строки:");
 
 
-int[,] FillMatrix(int lines, int columns)
+// int[,] FillMatrix(int lines, int columns)
+// {
+//     Random rand = new Random();
+//     int[,] matrix = new int[lines, columns];
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             matrix[i, j] = rand.Next(1, 9);     
+//         }
+//     }
+//     return matrix;
+// }
+
+// void PrintArray(int[,] matrix)
+// {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matrix.GetLength(1); j++)
+//         {
+//             Console.Write($"{matrix[i, j]}\t");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Console.WriteLine("Исходный массив:");
+// int [,] newMatrix = FillMatrix(3,4);
+// Console.WriteLine("Массив, отсортированный по убыванию элементов строки:");
+// PrintArray(matrix);
+// SortElemInLine(matrix);
+// PrintArray(matrix);
+
+Random rand = new Random();
+
+void FillMatrix(int[,] matr);
 {
-    Random rand = new Random();
-    int[,] matrix = new int[lines, columns];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
-            matrix[i, j] = rand.Next(1, 9);     
+            matr[i, j] = rand.Next(1, 9);
         }
     }
-    return matrix;
 }
 
-void PrintArray(int[,] matrix)
+void PrintArray(int[,] arr)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Console.Write($"{matrix[i, j]}\t");
+            Console.Write($"{arr[i, j]}\t");
         }
-        Console.WriteLine();
+        System.Console.WriteLine();
     }
 }
 
-int[,] SortElemInLine(int[,]matrix)
+int[,] matr = new int[3, 4];
+
+FillMatrix(matrix);
+PrintArray(matrix);
+System.Console.WriteLine(SortElemInLine(matrix));
+
+// int GetSum(int[,] matrix)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//         sum += matrix[i, i];
+//     }
+//     return sum;
+// }
+
+int[,] SortElemInLine(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -70,10 +118,3 @@ int[,] SortElemInLine(int[,]matrix)
     }
     return matrix;
 }
-
-int [,] newMatrix = FillMatrix(3, 4);
-Console.WriteLine("Исходный массив:");
-FillMatrix(matrix);
-Console.WriteLine("Массив, отсортированный по убыванию элементов строки:");
-SortElemInLine(matrix);
-PrintArray(matrix);

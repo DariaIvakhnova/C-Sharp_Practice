@@ -30,9 +30,9 @@ void FillMatrix(int[,] matr)
     }
 }
 
-int GetAverageForColumn(int[,] matrix)
+void GetAverageForColumn(int[,] matrix)
 {
-    int sumForColumn = 0;
+    double sumForColumn = 0;
     double averageForColumn = 0;
     for (int j = 0; j < matrix.GetLength(1); j++) // Меняем местами очередность (i <-> j) прохождения по массиву,
     {                                             // т.о. проходим поочередно столбцы и считаем сумму элементов в них.
@@ -40,10 +40,10 @@ int GetAverageForColumn(int[,] matrix)
         {
             sumForColumn += matrix[i, j];
         }
-        averageForColumn = (double) sumForColumn/matrix.GetLength(0);
-        Console.WriteLine($"Среднее арифметическое значений {j+1} столбца = {averageForColumn.ToString("F1")});");
+        averageForColumn = Convert.ToDouble(sumForColumn/matrix.GetLength(0));
+        Console.WriteLine($"Среднее арифметическое значений {j+1} столбца = {averageForColumn.ToString("F1")};");
+        sumForColumn = 0;
     }
-    return sumForColumn;
 }
 
 int[,] matrix = new int[3, 4];

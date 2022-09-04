@@ -23,8 +23,8 @@ int[,] NewRandomMatrix(int lines, int columns, int minRand, int maxRand)
 }
 
 int[,] newMatrix = NewRandomMatrix(3, 4, 1, 10);
-int lines = 3; // Искусственно выношу переменные из функции, чтобы использовать их дальше в сравнении (34)
-int columns = 4;
+int lines = newMatrix.GetLength(0); // Выношу переменные из функции, чтобы использовать их дальше в сравнении (34)
+int columns = newMatrix.GetLength(1);
 
 Console.WriteLine("Введите индекс строки элемента: "); // Запрашиваю именно индекс. Иначе: в строке (36) вывода 
 int indexLine = Convert.ToInt32(Console.ReadLine());   // значения из индексов нужно вычитать 1 и использовать

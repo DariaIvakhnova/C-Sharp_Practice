@@ -10,6 +10,7 @@
 // 8 4 4 2
 
 Console.WriteLine("Исходный массив:");
+
 int[,] matrix = new int[3,4];
 Random rand = new Random();
 for (int i = 0; i < matrix.GetLength(0); i++)
@@ -20,23 +21,6 @@ for (int i = 0; i < matrix.GetLength(0); i++)
         Console.Write($"{matrix[i,j]}\t");
     }
     Console.WriteLine();
-}
-
-Console.WriteLine("Массив, отсортированный по убыванию элементов строки:");
-
-
-int[,] FillMatrix(int lines, int columns)
-{
-    Random rand = new Random();
-    int[,] matrix = new int[lines, columns];
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = rand.Next(1, 9);     
-        }
-    }
-    return matrix;
 }
 
 void PrintArray(int[,] matrix)
@@ -50,50 +34,6 @@ void PrintArray(int[,] matrix)
         Console.WriteLine();
     }
 }
-
-Console.WriteLine("Исходный массив:");
-int [,] newMatrix = FillMatrix(3,4);
-Console.WriteLine("Массив, отсортированный по убыванию элементов строки:");
-PrintArray(matrix);
-SortElemInLine(matrix);
-PrintArray(matrix);
-
-// Random rand = new Random();
-
-// void FillMatrix(int[,] matr);
-// {
-//     for (int i = 0; i < matr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < matr.GetLength(1); j++)
-//         {
-//             matr[i, j] = rand.Next(1, 9);
-//         }
-//     }
-// }
-
-// void PrintArray(int[,] arr)
-// {
-//     for (int i = 0; i < arr.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < arr.GetLength(1); j++)
-//         {
-//             Console.Write($"{arr[i, j]}\t");
-//         }
-//         System.Console.WriteLine();
-//     }
-// }
-
-// int[,] matr = new int[3, 4];
-
-// // int GetSum(int[,] matrix)
-// // {
-// //     int sum = 0;
-// //     for (int i = 0; i < matrix.GetLength(0); i++)
-// //     {
-// //         sum += matrix[i, i];
-// //     }
-// //     return sum;
-// // }
 
 int[,] SortElemInLine(int[,] matrix)
 {
@@ -115,6 +55,6 @@ int[,] SortElemInLine(int[,] matrix)
     return matrix;
 }
 
-// FillMatrix(matrix);
-// PrintArray(matrix);
-// System.Console.WriteLine(SortElemInLine(matrix));
+Console.WriteLine("Массив, отсортированный по убыванию элементов в строке:");
+SortElemInLine(matrix);
+PrintArray(matrix);

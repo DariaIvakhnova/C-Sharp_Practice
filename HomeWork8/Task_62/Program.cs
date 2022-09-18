@@ -60,4 +60,4 @@ int[,] FillWithSpiral(int size)
 }
 
 int[,] matrix = FillWithSpiral(Prompt("Введите размер квадратной матрицы: "));
-PrintMatrix(matrix)
+PrintMatrix(matrix);

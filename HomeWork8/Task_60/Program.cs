@@ -7,7 +7,6 @@
 // 26(1,0,1) 55(1,1,1)
 
 Random rand = new Random();
-
 int[,,] NewMatrix = new int[2,2,2]; // заполнение массива рандомными двухзначными числами
 for (int i = 0; i < NewMatrix.GetLength(0); i++)  
 {
@@ -32,4 +31,3 @@ for (int i = 0; i < NewMatrix.GetLength(0); i++)  // вывод массива
         Console.WriteLine();
     }
 }
-

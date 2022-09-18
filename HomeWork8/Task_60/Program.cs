@@ -6,27 +6,40 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-Random rand = new Random();
-int[,,] NewMatrix = new int[2,2,2]; // заполнение массива рандомными двухзначными числами
-for (int i = 0; i < NewMatrix.GetLength(0); i++)  
+bool AntiRepeatCheck (int[] array, int element) // метод для проверки уникальности элемента массива
 {
-    for (int j = 0; j < NewMatrix.GetLength(1); j++) 
+    bool check = true;
+    for (int i = 0; i < array.Length; i++)
     {
-        for (int k = 0; k < NewMatrix.GetLength(2); k++)   
+        if (element == array[i])
         {
-            NewMatrix[i, j, k] = rand.Next(10,99); 
+            check = false;
         }
     }
+    return check;
 }
 
-Console.WriteLine("Трехмерный массив: ");
-for (int i = 0; i < NewMatrix.GetLength(0); i++)  // вывод массива
+int lines = 2;
+int columns = 2;
+int cubes = 2;
+Random rand = new Random();
+int[,,] newMatrix = new int[lines,columns,cubes]; // заполнение трехмерного массива рандомными двухзначными числами
+int[] array = new int[lines*columns*cubes]; // создание одном.массива размером равным количеству элементов трехм. массива, куда записываются элементы трехм.массива
+int n = 0;
+for (int i = 0; i < newMatrix.GetLength(0); i++)  
 {
-    for (int j = 0; j < NewMatrix.GetLength(1); j++) 
+    for (int j = 0; j < newMatrix.GetLength(1); j++) 
     {
-        for (int k = 0; k < NewMatrix.GetLength(2); k++)   
+        for (int k = 0; k < newMatrix.GetLength(2); k++)   
         {
-            Console.Write($"{NewMatrix[i, j, k]} ({j},{k},{i})\t");   
+            newMatrix[i, j, k] = rand.Next(10,100);
+            while(AntiRepeatCheck(array, newMatrix[i,j,k]) == false) //проверка на уникальность сгенерированного элемента
+            {
+                newMatrix[i,j,k] = rand.Next(10,100); //если число не уникально (false) - генерируем новое и снова проверяем
+            }
+            array[n] = newMatrix[i,j,k]; //если true - записываем число в одном.массив
+            n++;
+            Console.Write($"{newMatrix[i, j, k]} ({j},{k},{i})\t"); //вывод элементов трехм. массива
         }
         Console.WriteLine();
     }

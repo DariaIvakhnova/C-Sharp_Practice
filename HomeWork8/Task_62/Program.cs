@@ -5,6 +5,9 @@
 // 11 16 15 06
 // 10 09 08 07
 
+Console.Write("Введите размер квадратной матрицы: ");
+int size = Convert.ToInt32(Console.ReadLine());
+
 void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -14,50 +17,42 @@ void PrintMatrix(int[,] matrix)
             System.Console.Write($"{matrix[i, j]}\t");
         }
         System.Console.WriteLine();
-
     }
 }
 
-int Prompt(string message)
+int[,] MatrixSpiralFilling(int size)
 {
-    System.Console.Write(message);
-    int num = Convert.ToInt32(Console.ReadLine());
-    return num;
-}
-
-int[,] FillWithSpiral(int size)
-{
-    int elements = size * size;
-    int countElement = 0;
-    int begin = 0;
+    int quantityOfElements = size * size; // кол-во элементов массива
+    int elementCounter = 0; // счетчик элементов
+    int start = 0; // первый элемент
     int[,] array = new int[size, size];
-    while (countElement < elements)
+    while (elementCounter < quantityOfElements)
     {
-        for (int i = begin; i < size; i++)
+        for (int i = start; i < size; i++) 
         {
-            countElement++;
-            array[begin, i] = countElement;
+            elementCounter++;
+            array[start, i] = elementCounter;
         }
-        for (int i = begin + 1; i < size; i++)
+        for (int i = start + 1; i < size; i++)
         {
-            countElement++;
-            array[i, size - 1] = countElement;
+            elementCounter++;
+            array[i, size - 1] = elementCounter;
         }
-        for (int i = size - 2; i >= begin; i--)
+        for (int i = size - 2; i >= start; i--)
         {
-            countElement++;
-            array[size - 1, i] = countElement;
+            elementCounter++;
+            array[size - 1, i] = elementCounter;
         }
-        for (int i = size - 2; i >= begin + 1; i--)
+        for (int i = size - 2; i >= start + 1; i--)
         {
-            countElement++;
-            array[i, begin] = countElement;
+            elementCounter++;
+            array[i, start] = elementCounter;
         }
         size -= 1;
-        begin += 1;
+        start += 1;
     }
     return array;
 }
 
-int[,] matrix = FillWithSpiral(Prompt("Введите размер квадратной матрицы: "));
+int [,]matrix = MatrixSpiralFilling(size);
 PrintMatrix(matrix);

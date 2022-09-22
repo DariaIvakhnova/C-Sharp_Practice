@@ -26,4 +26,4 @@ if (numberM > numberN) // цикл обмена значениями для сл
 }
 
 SumInsideInterval(numberM,numberN);
-Console.WriteLine($"Сумма натуральных элементов в промежутке [M;N] = {(SumInsideInterval(numberM,numberN))}");
+Console.WriteLine($"Сумма натуральных элементов в интервале [M;N] = {(SumInsideInterval(numberM,numberN))}");
